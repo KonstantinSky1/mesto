@@ -1,0 +1,21 @@
+.profile-content__button {
+  padding: 11px;
+  border: 1px solid #FFFFFF;
+  cursor: pointer;
+  align-self: center;
+  background: transparent url('../../../images/penciliconWhite.svg') center center no-repeat;
+  /* немного сдвигаем вниз, чтобы было похоже на макет */
+  position: relative;
+  top: 4px;
+  left: 0;
+}
+
+.profile-content__button:active {
+  position: relative;
+  top: 5px;
+  left: 0;
+}
+
+.profile-content__button:hover {
+  opacity: .6;
+}

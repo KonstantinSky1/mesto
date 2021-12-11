@@ -1,0 +1,38 @@
+@import url('../vendor/normalize.css');
+
+@import url('../vendor/fonts/fonts.css');
+
+@import url('../blocks/root/root.css');
+@import url('../blocks/page-wrapper/page-wrapper.css');
+@import url('../blocks/header/header.css');
+@import url('../blocks/container/container.css');
+@import url('../blocks/footer/footer.css');
+@import url('../blocks/content/content.css');
+@import url('../blocks/profile/profile.css');
+@import url('../blocks/profile-content/profile-content.css');
+@import url('../blocks/photo-grid/photo-grid.css');
+@import url('../blocks/popup/popup.css');
+@import url('../blocks/form-element/form-element.css');
+
+@import url('../blocks/header/__logo/header__logo.css');
+@import url('../blocks/header/__border/header__border.css');
+@import url('../blocks/footer/__copyright-text/footer__copyright-text.css');
+@import url('../blocks/profile/__image/profile__image.css');
+@import url('../blocks/profile-content/__title/profile-content__title.css');
+@import url('../blocks/profile-content/__row/profile-content__row.css');
+@import url('../blocks/profile-content/__button/profile-content__button.css');
+@import url('../blocks/profile-content/__subtitle/profile-content__subtitle.css');
+@import url('../blocks/profile/__button-plus/profile__button-plus.css');
+@import url('../blocks/photo-grid/__list/photo-grid__list.css');
+@import url('../blocks/photo-grid/__list-item/photo-grid__list-item.css');
+@import url('../blocks/photo-grid/__image/photo-grid__image.css');
+@import url('../blocks/photo-grid/__row/photo-grid__row.css');
+@import url('../blocks/photo-grid/__title/photo-grid__title.css');
+@import url('../blocks/photo-grid/__button/photo-grid__button.css');
+@import url('../blocks/popup/__container/popup__container.css');
+@import url('../blocks/popup/__close-button/popup__close-button.css');
+@import url('../blocks/popup/__title/popup__title.css');
+@import url('../blocks/popup/__input/popup__input.css');
+@import url('../blocks/popup/__button-save/popup__button-save.css');
+
+@import url('../blocks/popup/_opened/popup_opened.css');
