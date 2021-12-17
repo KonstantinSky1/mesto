@@ -1,11 +1,10 @@
-.page-wrapper {
+.root__page-wrapper {
   /* display: flex и min-height: 100vh; - нужны чтобы footer при любом количестве контента всегда был прижат к низу.
-   Для этого также классу content задаём flex: 1 1 auto */
+  Для этого также классу content задаём flex: 1 1 auto */
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  overflow: hidden;
-  max-width: 1280px;
+  max-width: 880px;
   margin: 0 auto;
   font-family: 'Inter', 'Arial', sans-serif;
   color: #FFF;

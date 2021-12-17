@@ -1,4 +1,4 @@
-.photo-grid__button {
+.photo-card__button {
   padding: 0;
   border: none;
   background: transparent url('../../../images/loveLikeWhite.svg') no-repeat;
@@ -8,6 +8,6 @@
   cursor: pointer;
 }
 
-.photo-grid__button:hover {
-    opacity: .5;
+.photo-card__button:hover {
+  opacity: .5;
 }

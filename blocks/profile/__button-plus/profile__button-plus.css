@@ -6,24 +6,13 @@
   cursor: pointer;
 }
 
-.profile__button-plus:active {
-  position: relative;
-  top: 1px;
-  left: 0;
-}
 .profile__button-plus:hover{
   opacity: .6;
 }
 
-@media screen and (max-width: 770px) {
+@media screen and (max-width: 936px) {
   .profile__button-plus {
-    padding: 16px 66px 16px 66px;
-  }
-}
-
-@media screen and (max-width: 650px) {
-  .profile__button-plus {
-    padding: 16px 46px 16px 46px;
+    padding: 16px 36px 16px 36px;
   }
 }
 
@@ -31,5 +20,7 @@
   .profile__button-plus {
     padding: 23px 0 23px 0;
     width: 100%;
+    max-width: 282px;
+    background: transparent url('../../../images/plusiconWhite1616.svg') center center no-repeat;
   }
 }

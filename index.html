@@ -7,107 +7,97 @@
   <link rel="stylesheet" href="./pages/index.css">
 </head>
 <body class="root">
-  <div class="page-wrapper">
+  <div class="root__page-wrapper">
 
-    <header class="header">
-      <!-- класс container для того чтобы с помощью padding отталкивать содержимое от краёв на разных разрешениях
-        + задаём начальную ширину. Не задаём сразу всей странице, т.к. border в отличие от всех других элементов растянется на всю ширину-->
-      <div class="container">
-        <img class="header__logo" src="./images/headerLogo.svg" alt="Логотип.">
-      </div>
-      <!-- div нужен чтобы opacity не действовало на логотип -->
-      <div class="header__border"></div>
+    <header class="header container">
+      <img class="header__logo" src="./images/headerLogo.svg" alt="Логотип.">
     </header>
 
-    <main class="content">
-      <div class="container">
+    <main class="content container">
 
-        <section class="profile">
-          <img class="profile__image" src="./images/jacKystoFace.jpg" alt="Жак-Ив Кусто.">
-          <div class="profile-content">
-            <div class="profile-content__row">
-              <h1 class="profile-content__title">Жак-Ив Кусто</h1>
-              <button class="profile-content__button"></button>
-            </div>
-            <p class="profile-content__subtitle">Исследователь океана</p>
+      <section class="profile">
+        <img class="profile__image" src="./images/jacKystoFace.jpg" alt="Жак-Ив Кусто.">
+        <div class="profile__content">
+          <div class="profile__content-element-flex">
+            <h1 class="profile__title">Жак-Ив Кусто</h1>
+            <button class="profile__edit-popup" type="button" aria-label="открыть окно редактирования профиля"></button>
           </div>
-          <button class="profile__button-plus"></button>
-        </section>
-      
-        <section class="photo-grid">
-          <ul class="photo-grid__list">
+          <p class="profile__subtitle">Исследователь океана</p>
+        </div>
+        <button class="profile__button-plus" type="button" aria-label="кнопка еще в разработке"></button>
+      </section>
+    
+      <section class="photo-grid">
+        <ul class="photo-grid__list">
 
-            <li class="photo-grid__list-item">
-              <img class="photo-grid__image" src="./images/karachaevsk.jpg" alt="Карачаевск.">
-              <div class="photo-grid__row">
-                <h4 class="photo-grid__title">Карачаевск</h4>
-                <button class="photo-grid__button"></button>
-              </div>
-            </li>
+          <li class="photo-card">
+            <img class="photo-card__image" src="./images/karachaevsk.jpg" alt="Карачаевск.">
+            <div class="photo-card__description">
+              <h2 class="photo-card__title">Карачаевск</h2>
+              <button class="photo-card__button" type="button" aria-label="поставь лайк"></button>
+            </div>
+          </li>
 
-            <li class="photo-grid__list-item">
-              <img class="photo-grid__image" src="./images/elbrus.jpg" alt="Гора Эльбрус.">
-              <div class="photo-grid__row">
-                <h4 class="photo-grid__title">Гора Эльбрус</h4>
-                <button class="photo-grid__button"></button>
-              </div>
-            </li>
+          <li class="photo-card">
+            <img class="photo-card__image" src="./images/elbrus.jpg" alt="Гора Эльбрус.">
+            <div class="photo-card__description">
+              <h2 class="photo-card__title">Гора Эльбрус</h2>
+              <button class="photo-card__button" type="button" aria-label="поставь лайк"></button>
+            </div>
+          </li>
 
-            <li class="photo-grid__list-item">
-              <img class="photo-grid__image" src="./images/dombai.jpg" alt="Домбай.">
-              <div class="photo-grid__row">
-                <h4 class="photo-grid__title">Домбай</h4>
-                <button class="photo-grid__button"></button>
-              </div>
-            </li>
+          <li class="photo-card">
+            <img class="photo-card__image" src="./images/dombai.jpg" alt="Домбай.">
+            <div class="photo-card__description">
+              <h2 class="photo-card__title">Домбай</h2>
+              <button class="photo-card__button" type="button" aria-label="поставь лайк"></button>
+            </div>
+          </li>
 
-            <li class="photo-grid__list-item">
-              <img class="photo-grid__image" src="./images/goraElbrus.jpg" alt="Гора Эльбрус.">
-              <div class="photo-grid__row">
-                <h4 class="photo-grid__title">Гора Эльбрус</h4>
-                <button class="photo-grid__button"></button>
-              </div>
-            </li>
+          <li class="photo-card">
+            <img class="photo-card__image" src="./images/goraElbrus.jpg" alt="Гора Эльбрус.">
+            <div class="photo-card__description">
+              <h2 class="photo-card__title">Гора Эльбрус</h2>
+              <button class="photo-card__button" type="button" aria-label="поставь лайк"></button>
+            </div>
+          </li>
 
-            <li class="photo-grid__list-item">
-              <img class="photo-grid__image" src="./images/dombai2.jpg" alt="Домбай.">
-              <div class="photo-grid__row">
-                <h4 class="photo-grid__title">Домбай</h4>
-                <button class="photo-grid__button"></button>
-              </div>
-            </li>
+          <li class="photo-card">
+            <img class="photo-card__image" src="./images/dombai2.jpg" alt="Домбай.">
+            <div class="photo-card__description">
+              <h2 class="photo-card__title">Домбай</h2>
+              <button class="photo-card__button" type="button" aria-label="поставь лайк"></button>
+            </div>
+          </li>
 
-            <li class="photo-grid__list-item">
-              <img class="photo-grid__image" src="./images/karachaevo-cherkessiya.jpg" alt="Карачаево-Черкессия.">
-              <div class="photo-grid__row">
-                <h4 class="photo-grid__title">Карачаево-Черкессия</h4>
-                <button class="photo-grid__button"></button>
-              </div>
-            </li>
+          <li class="photo-card">
+            <img class="photo-card__image" src="./images/karachaevo-cherkessiya.jpg" alt="Карачаево-Черкессия.">
+            <div class="photo-card__description">
+              <h2 class="photo-card__title">Карачаево-Черкессия</h2>
+              <button class="photo-card__button" type="button" aria-label="поставь лайк"></button>
+            </div>
+          </li>
 
-          </ul>
-        </section>
-        
-      </div>
+        </ul>
+      </section>
+
     </main>
 
-    <footer class="footer">
-      <div class="container">
-        <p class="footer__copyright-text">© 2020 Mesto Russia</p>
-      </div>
+    <footer class="footer container">
+      <p class="footer__copyright-text">© 2021 Mesto Russia</p>
     </footer>
 
-    <section class="popup">
+    <div class="popup">
       <div class="popup__container">
-        <button class="popup__close-button"></button>
+        <button class="popup__close-button" type="button" aria-label="закрыть окно редактирования профиля"></button>
         <h4 class="popup__title">Редактировать профиль</h4>
-        <form class="form-element">
-          <input class="popup__input" id="nameInput" type="text" name="firstname" value="Жак-Ив Кусто" placeholder="Введите имя" required>
-          <input class="popup__input" id="professionInput" type="text" name="profession" value="Исследователь океана" placeholder="Напишите о себе" required>
+        <form class="popup__form" name="popupForm">
+          <input class="popup__input popup__input_info_name" type="text" name="firstname" value="Жак-Ив Кусто" placeholder="Введите имя" required>
+          <input class="popup__input popup__input_info_profession" type="text" name="profession" value="Исследователь океана" placeholder="Напишите о себе" required>
           <button class="popup__button-save" type="submit">Сохранить</button>
         </form>
       </div>
-    </section>
+    </div>
 
   </div>
   <script src="./scripts/index.js"></script>
