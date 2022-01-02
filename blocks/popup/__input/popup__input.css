@@ -17,3 +17,9 @@
 .popup__input:focus {
   outline: 2px solid #6998EB;
 }
+
+.popup__input::placeholder {
+  font-size: 14px;
+  line-height: 17px;
+  color: #C4C4C4;
+}
