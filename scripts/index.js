@@ -35,7 +35,7 @@ const initialCards = [
     name: 'Байкал',
     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
   }
-]; 
+];
 
 const imagePopupPicture = document.querySelector('.image-popup__picture');
 const imagePopupDescription = document.querySelector('.image-popup__description');
@@ -45,6 +45,8 @@ const nameInputProfileEdit = formElementProfileEdit.querySelector('.popup__input
 const professionInputProfileEdit = formElementProfileEdit.querySelector('.popup__input_info_profession');
 const newName = document.querySelector('.profile__title');
 const newProfession = document.querySelector('.profile__subtitle');
+const popupsOverlay = document.querySelectorAll('.popup');
+const bodyRoot = document.querySelector('.root');
 
 function openPopup(popup) {
   popup.classList.add('popup_opened');
@@ -54,10 +56,36 @@ function closePopup(popup) {
   popup.classList.remove('popup_opened');
 }
 
+function closePopupClickOnOverlay(event) {
+  if (event.target === event.currentTarget) {
+    const openedPopup = document.querySelector('.popup_opened');
+    closePopup(openedPopup);
+  }
+}
+
+function closePopupKeydown(event) {
+  if (event.keyCode == 27 || event.key == 'Escape') {
+    const openedPopup = document.querySelector('.popup_opened');
+    closePopup(openedPopup);
+  }
+}
+
 function openPopupProfileEdit() {
   nameInputProfileEdit.value = newName.textContent;
   professionInputProfileEdit.value = newProfession.textContent;
   openPopup(popupProfileEdit);
+  hideInputError(formElementProfileEdit, nameInputProfileEdit, config);
+  hideInputError(formElementProfileEdit, professionInputProfileEdit, config);
+  toggleButton(formElementProfileEdit, config);
+}
+
+function openPopupNewCard() {
+  openPopup(popupNewCard);
+  titleCardInput.value = '';
+  linkCardInput.value = '';
+  hideInputError(formElementNewCard, titleCardInput, config);
+  hideInputError(formElementNewCard, linkCardInput, config);
+  toggleButton(formElementNewCard, config);
 }
 
 function openPhotoCardImage(picture, text) {
@@ -67,8 +95,7 @@ function openPhotoCardImage(picture, text) {
   openPopup(imagePopup);
 }
 
-function handleProfileFormSubmit(evt) {
-  evt.preventDefault();
+function handleProfileFormSubmit() {
   newName.textContent = nameInputProfileEdit.value;
   newProfession.textContent = professionInputProfileEdit.value;
   closePopup(popupProfileEdit);
@@ -104,23 +131,25 @@ function addCardToHtml(item) {
   photoGridList.prepend(item);
 }
 
-function handleNewCardSubmit(evt) {
-  evt.preventDefault();
+function handleNewCardSubmit() {
   const newCardData = createCard(titleCardInput.value, linkCardInput.value);
   addCardToHtml(newCardData);
-  titleCardInput.value = '';
-  linkCardInput.value = '';
   closePopup(popupNewCard);
 }
 
 initialCards.forEach(function(element) {
   addCardToHtml(createCard(element.name, element.link));
-})
+});
+
+popupsOverlay.forEach(popup => {
+  popup.addEventListener('mousedown', closePopupClickOnOverlay);
+});
 
 buttonOpenPopupProfileEdit.addEventListener('click', () => openPopupProfileEdit());
 buttonClosePopupProfileEdit.addEventListener('click', () => closePopup(popupProfileEdit));
 formElementProfileEdit.addEventListener('submit', handleProfileFormSubmit);
-buttonOpenPopupNewCard.addEventListener('click', () => openPopup(popupNewCard));
+buttonOpenPopupNewCard.addEventListener('click', () => openPopupNewCard());
 buttonClosePopupNewCard.addEventListener('click', () => closePopup(popupNewCard));
 formElementNewCard.addEventListener('submit', handleNewCardSubmit);
 buttonClosePopupCardImage.addEventListener('click', () => closePopup(imagePopup));
+bodyRoot.addEventListener('keydown', closePopupKeydown);
