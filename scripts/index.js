@@ -10,33 +10,6 @@ const photoCardTemplateId = document.querySelector('#photo-card-template-id').co
 const photoGridList = document.querySelector('.photo-grid__list');
 const formElementNewCard = document.querySelector('.popup__form_new_card');
 const imagePopup = document.querySelector('.image-popup');
-const initialCards = [
-  {
-    name: 'Архыз',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-  },
-  {
-    name: 'Челябинская область',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-  },
-  {
-    name: 'Иваново',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-  },
-  {
-    name: 'Камчатка',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-  },
-  {
-    name: 'Холмогорский район',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-  },
-  {
-    name: 'Байкал',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-  }
-];
-
 const imagePopupPicture = document.querySelector('.image-popup__picture');
 const imagePopupDescription = document.querySelector('.image-popup__description');
 const titleCardInput = formElementNewCard.querySelector('.popup__input_name_card');
@@ -46,14 +19,17 @@ const professionInputProfileEdit = formElementProfileEdit.querySelector('.popup_
 const newName = document.querySelector('.profile__title');
 const newProfession = document.querySelector('.profile__subtitle');
 const popupsOverlay = document.querySelectorAll('.popup');
-const bodyRoot = document.querySelector('.root');
+const popupButtonProfile = document.querySelector('.popup__button-save_info_profile');
+const popupButtonCard = document.querySelector('.popup__button-save_info_card');
 
 function openPopup(popup) {
   popup.classList.add('popup_opened');
+  document.addEventListener('keydown', closePopupKeydown);
 }
 
 function closePopup(popup) {
   popup.classList.remove('popup_opened');
+  document.removeEventListener('keydown', closePopupKeydown);
 }
 
 function closePopupClickOnOverlay(event) {
@@ -74,18 +50,21 @@ function openPopupProfileEdit() {
   nameInputProfileEdit.value = newName.textContent;
   professionInputProfileEdit.value = newProfession.textContent;
   openPopup(popupProfileEdit);
-  hideInputError(formElementProfileEdit, nameInputProfileEdit, config);
-  hideInputError(formElementProfileEdit, professionInputProfileEdit, config);
-  toggleButton(formElementProfileEdit, config);
+
+  const inputsProfile = formElementProfileEdit.querySelectorAll('.popup__input');
+  clearInputsError(formElementProfileEdit, inputsProfile, config);
+
+  toggleButton(formElementProfileEdit, popupButtonProfile, config);
 }
 
 function openPopupNewCard() {
   openPopup(popupNewCard);
-  titleCardInput.value = '';
-  linkCardInput.value = '';
-  hideInputError(formElementNewCard, titleCardInput, config);
-  hideInputError(formElementNewCard, linkCardInput, config);
-  toggleButton(formElementNewCard, config);
+  formElementNewCard.reset();
+
+  const inputsProfile = formElementNewCard.querySelectorAll('.popup__input');
+  clearInputsError(formElementNewCard, inputsProfile, config);
+
+  toggleButton(formElementNewCard, popupButtonCard, config);
 }
 
 function openPhotoCardImage(picture, text) {
@@ -105,8 +84,8 @@ function toggleLikes(like) {
   like.classList.toggle('photo-card__button_like_black');
 }
 
-function deleteCard(item) {
-  item.parentNode.removeChild(item);
+function deleteCard(event) {
+  event.target.closest('.photo-card').remove();
 }
 
 function createCard(elementName, elementLink) {
@@ -120,25 +99,24 @@ function createCard(elementName, elementLink) {
   photoCardImage.src = elementLink;
   photoCardImage.alt = elementName;
 
-  buttonTrash.addEventListener('click', () => deleteCard(photoCardTemplate));
+  buttonTrash.addEventListener('click', deleteCard);
   buttonLike.addEventListener('click', () => toggleLikes(buttonLike));
   photoCardImage.addEventListener('click', () => openPhotoCardImage(photoCardImage, photoCardTitle));
 
   return photoCardTemplate;
 }
 
-function addCardToHtml(item) {
-  photoGridList.prepend(item);
+function addCardToHtml(itemName, itemLink) {
+  photoGridList.prepend(createCard(itemName, itemLink));
 }
 
 function handleNewCardSubmit() {
-  const newCardData = createCard(titleCardInput.value, linkCardInput.value);
-  addCardToHtml(newCardData);
+  addCardToHtml(titleCardInput.value, linkCardInput.value);
   closePopup(popupNewCard);
 }
 
 initialCards.forEach(function(element) {
-  addCardToHtml(createCard(element.name, element.link));
+  addCardToHtml(element.name, element.link);
 });
 
 popupsOverlay.forEach(popup => {
@@ -152,4 +130,3 @@ buttonOpenPopupNewCard.addEventListener('click', () => openPopupNewCard());
 buttonClosePopupNewCard.addEventListener('click', () => closePopup(popupNewCard));
 formElementNewCard.addEventListener('submit', handleNewCardSubmit);
 buttonClosePopupCardImage.addEventListener('click', () => closePopup(imagePopup));
-bodyRoot.addEventListener('keydown', closePopupKeydown);
