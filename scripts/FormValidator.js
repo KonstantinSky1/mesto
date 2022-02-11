@@ -27,12 +27,6 @@ export class FormValidator {
     evt.preventDefault();
   }
 
-  _clearInputsError(inputs) {
-    inputs.forEach(input => {
-      this._hideInputError(input);
-    });
-  }
-
   _validateInput(input) {
     if (input.validity.valid) {
       this._hideInputError(input);
@@ -41,7 +35,13 @@ export class FormValidator {
     }
   }
 
-  _toggleButton(button) {
+  clearInputsError(inputs) {
+    inputs.forEach(input => {
+      this._hideInputError(input);
+    });
+  }
+
+  toggleButton(button) {
     const isFormValid = this._formElement.checkValidity();
 
     if (isFormValid) {
@@ -62,7 +62,7 @@ export class FormValidator {
     inputs.forEach(input => {
       input.addEventListener('input', () => {
         this._validateInput(input);
-        this._toggleButton(button);
+        this.toggleButton(button);
       });
     });
   }
