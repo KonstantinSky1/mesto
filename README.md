@@ -5,6 +5,9 @@
 * Сделана валидация полей формы.
 * Код разбит на классы и модули.
 * Первые шаги в JavaScript!
+
+* 8я Курсовая работа.
+
 * https://konstantinsky1.github.io/mesto/index.html
 
 

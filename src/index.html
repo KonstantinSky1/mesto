@@ -4,19 +4,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Проект Место</title>
-  <link rel="stylesheet" href="./pages/index.css">
 </head>
 <body class="root">
   <div class="root__page-wrapper">
 
     <header class="header container">
-      <img class="header__logo" src="./images/headerLogo.svg" alt="Логотип.">
+      <img class="header__logo" src="<%=require('./images/headerLogo.svg')%>" alt="Логотип.">
     </header>
 
     <main class="content container">
 
       <section class="profile">
-        <img class="profile__image" src="./images/jacKystoFace.jpg" alt="Жак-Ив Кусто.">
+        <img class="profile__image" src="<%=require('./images/jacKystoFace.jpg')%>" alt="Жак-Ив Кусто.">
         <div class="profile__content">
           <div class="profile__content-element-flex">
             <h1 class="profile__title">Жак-Ив Кусто</h1>
@@ -44,9 +43,9 @@
         <button class="popup-close-button popup-close-button_profile_edit" type="button" aria-label="закрыть окно редактирования профиля"></button>
         <h4 class="popup__title">Редактировать профиль</h4>
         <form class="popup__form popup__form_profile_edit" name="popupFormProfileEdit" novalidate>
-          <input class="popup__input popup__input_info_name" id="username" type="text" name="firstname" value="Жак-Ив Кусто" placeholder="Введите имя" required minlength="2" maxlength="40" autocomplete="off">
+          <input class="popup__input popup__input_info_name" id="username" type="text" name="firstname" placeholder="Введите имя" required minlength="2" maxlength="40" autocomplete="off">
           <span class="error-message username-error"></span>
-          <input class="popup__input popup__input_info_profession" id="profession" type="text" name="profession" value="Исследователь океана" placeholder="Напишите о себе" required minlength="2" maxlength="200" autocomplete="off">
+          <input class="popup__input popup__input_info_profession" id="profession" type="text" name="profession" placeholder="Напишите о себе" required minlength="2" maxlength="200" autocomplete="off">
           <span class="error-message profession-error"></span>
           <button class="popup__button-save popup__button-save_info_profile" type="submit">Сохранить</button>
         </form>
@@ -87,6 +86,5 @@
     </template>
 
   </div>
-  <script type="module" src="./scripts/index.js"></script>
 </body>
 </html>
