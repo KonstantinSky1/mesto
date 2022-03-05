@@ -1,17 +1,11 @@
 export const buttonOpenPopupProfileEdit = document.querySelector('.profile__edit-popup');
-export const popupProfileEdit = document.querySelector('.popup_profile_edit');
 export const formElementProfileEdit = document.querySelector('.popup__form_profile_edit');
 export const buttonOpenPopupNewCard = document.querySelector('.profile__button-plus');
-export const popupNewCard = document.querySelector('.popup_new_card');
-export const photoGridList = document.querySelector('.photo-grid__list');
 export const formElementNewCard = document.querySelector('.popup__form_new_card');
-export const imagePopup = document.querySelector('.image-popup');
 export const imagePopupPicture = document.querySelector('.image-popup__picture');
 export const imagePopupDescription = document.querySelector('.image-popup__description');
-export const newName = document.querySelector('.profile__title');
-export const newProfession = document.querySelector('.profile__subtitle');
-export const popupButtonProfile = document.querySelector('.popup__button-save_info_profile');
-export const popupButtonCard = document.querySelector('.popup__button-save_info_card');
+export const nameInputProfileEdit = document.querySelector('.popup__input_info_name');
+export const professionInputProfileEdit = document.querySelector('.popup__input_info_profession');
 
 export const initialCards = [
   {

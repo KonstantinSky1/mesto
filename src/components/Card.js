@@ -1,8 +1,8 @@
 export default class Card {
-  constructor(arrayData, cardSelector, handleCardClick) {
+  constructor(objData, cardSelector, handleCardClick) {
     this._cardSelector = cardSelector;
-    this._cardTitle = arrayData.name;
-    this._cardImage = arrayData.link;
+    this._cardTitle = objData.name;
+    this._cardImage = objData.link;
     this._handleCardClick = handleCardClick;
   }
 
@@ -11,28 +11,30 @@ export default class Card {
     return cardElement;
   }
 
-  _deleteCard(event) {
-    event.target.closest('.photo-card').remove();
-  }
-
   _toggleLikes() {
     this.classList.toggle('photo-card__button_like_black');
   }
 
   _setEventListeners() {
-    this._element.querySelector('.photo-card__button-trash').addEventListener('click', this._deleteCard);
+    this._element.querySelector('.photo-card__button-trash').addEventListener('click', this._deleteCard.bind(this));
     this._element.querySelector('.photo-card__button').addEventListener('click', this._toggleLikes);
-    this._element.querySelector('.photo-card__image').addEventListener('click', () => this._handleCardClick(this._cardTitle, this._cardImage));
+    this._photoCardImage.addEventListener('click', () => this._handleCardClick(this._cardTitle, this._cardImage));
   }
 
   generateCard() {
     this._element = this._getTemplate();
+    this._photoCardImage = this._element.querySelector('.photo-card__image');
+
     this._setEventListeners();
 
-    this._element.querySelector('.photo-card__image').src = this._cardImage;
+    this._photoCardImage.src = this._cardImage;
     this._element.querySelector('.photo-card__title').textContent = this._cardTitle;
-    this._element.querySelector('.photo-card__image').alt = this._cardTitle;
+    this._photoCardImage.alt = this._cardTitle;
 
     return this._element;
+  }
+
+  _deleteCard() {
+    this._element.remove();
   }
 }
