@@ -15,13 +15,13 @@
     <main class="content container">
 
       <section class="profile">
-        <img class="profile__image" src="<%=require('./images/jacKystoFace.jpg')%>" alt="Жак-Ив Кусто.">
+        <button class="profile__image" type="button" aria-label="открыть окно редактирования аватара профиля"></button>
         <div class="profile__content">
           <div class="profile__content-element-flex">
-            <h1 class="profile__title">Жак-Ив Кусто</h1>
-            <button class="profile__edit-popup" type="button" aria-label="открыть окно редактирования профиля"></button>
+            <h1 class="profile__title"></h1>
+            <button class="profile__edit-popup" type="button" aria-label="открыть окно редактирования данных профиля"></button>
           </div>
-          <p class="profile__subtitle">Исследователь океана</p>
+          <p class="profile__subtitle"></p>
         </div>
         <button class="profile__button-plus" type="button" aria-label="кнопка добавления новой карточки"></button>
       </section>
@@ -74,13 +74,38 @@
       </figure>
     </div>
 
+    <div class="popup popup_type_delete-card">
+      <div class="popup__container">
+        <button class="popup-close-button" type="button" aria-label="закрыть окно удаления карточки"></button>
+        <h4 class="popup__title popup__title_type_size">Вы уверены?</h4>
+        <form class="popup__form" name="popupFormDeleteCard">
+          <button class="popup__button-save popup__button-save_type_size" type="submit">Да</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="popup popup_type_change-avatar">
+      <div class="popup__container">
+        <button class="popup-close-button" type="button" aria-label="закрыть окно изменения картинки профиля"></button>
+        <h4 class="popup__title">Обновить аватар</h4>
+        <form class="popup__form popup__form_edit_avatar" name="popupFormProfileEditAvatar" novalidate>
+          <input class="popup__input" id="avatarLink" type="url" name="avatarLink" placeholder="Ссылка на картинку аватара" required>
+          <span class="error-message avatarLink-error"></span>
+          <button class="popup__button-save" type="submit">Сохранить</button>
+        </form>
+      </div>
+    </div>
+
     <template id="photo-card-template-id">
       <li class="photo-card">
         <button class="photo-card__button-trash" type="button"></button>
         <img class="photo-card__image">
         <div class="photo-card__description">
           <h2 class="photo-card__title"></h2>
-          <button class="photo-card__button" type="button" aria-label="поставь лайк"></button>
+          <div class="photo-card__like-counter-block">
+            <button class="photo-card__button" type="button" aria-label="поставь лайк"></button>
+            <span class="photo-card__counter"></span>
+          </div>
         </div>
       </li>
     </template>

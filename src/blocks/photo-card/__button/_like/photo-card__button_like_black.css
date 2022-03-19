@@ -2,9 +2,8 @@
   padding: 0;
   border: none;
   background: transparent url('../../../../images/loveLikeBlack.svg') no-repeat;
-  max-width: 22px;
+  width: 22px;
   height: 19px;
-  width: 100%;
   cursor: pointer;
 }
 
