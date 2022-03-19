@@ -15,7 +15,7 @@
 .root__page-wrapper{-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;-moz-text-size-adjust:100%;color:#fff;display:flex;flex-direction:column;font-family:Inter,Arial,sans-serif;margin:0 auto;max-width:880px;min-height:100vh}
 @media screen and (max-width:450px){.header__logo{max-width:104px;padding:0 0 0 8px}}
 .footer__copyright-text{color:#545454;font-size:18px;line-height:22px;margin:0}@media screen and (max-width:450px){.footer__copyright-text{font-size:14px;line-height:17px}}
-.profile__image{border-radius:50%;height:120px;margin:0 30px 0 0;width:120px}@media screen and (max-width:770px){.profile__image{margin:0 15px 0 0}}@media screen and (max-width:650px){.profile__image{margin:0 10px 0 0}}@media screen and (max-width:580px){.profile__image{margin:0 0 25px}}
+.profile__image{background-color:inherit;background-position:50%;background-repeat:no-repeat;background-size:cover;border:none;border-radius:50%;height:120px;margin:0 30px 0 0;position:relative;width:120px}.profile__image:before{border-radius:50%;content:"";height:102%;left:-1px;position:absolute;top:-1px;width:102%}.profile__image:hover:before{background:rgba(0,0,0,.8) url(a086f758840ae814ecde.svg) no-repeat 50%;cursor:pointer}@media screen and (max-width:770px){.profile__image{margin:0 15px 0 0}}@media screen and (max-width:650px){.profile__image{margin:0 10px 0 0}}@media screen and (max-width:580px){.profile__image{margin:0 0 25px}}
 .profile__button-plus{background:transparent url(d86bb2edc2f6eadb96b7.svg) 50% no-repeat;border:2px solid #fff;border-radius:2px;cursor:pointer;padding:23px 73px}.profile__button-plus:hover{opacity:.6}@media screen and (max-width:936px){.profile__button-plus{padding:16px 36px}}@media screen and (max-width:580px){.profile__button-plus{background:transparent url(d5d6f8af0577b9c95ee4.svg) 50% no-repeat;max-width:282px;padding:23px 0;width:100%}}
 .profile__content{margin-right:auto}@media screen and (max-width:580px){.profile__content{margin:0 0 30px}}
 .profile__content-element-flex{display:flex;margin:0 0 10px}@media screen and (max-width:580px){.profile__content-element-flex{padding-left:32px}}
@@ -24,9 +24,9 @@
 .profile__subtitle{font-size:18px;line-height:22px;margin:0;max-width:500px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}@media screen and (max-width:820px){.profile__subtitle{max-width:400px}}@media screen and (max-width:690px){.profile__subtitle{max-width:320px}}@media screen and (max-width:650px){.profile__subtitle{max-width:260px}}@media screen and (max-width:580px){.profile__subtitle{margin:0 auto;text-align:center}}@media screen and (max-width:450px){.profile__subtitle{font-size:14px;line-height:17px}}
 .photo-grid__list{display:grid;gap:17px;grid-template-columns:repeat(auto-fill,282px);list-style:none;margin:0;padding:0}@media screen and (max-width:936px){.photo-grid__list{justify-content:center}}
 .photo-card__image{cursor:pointer;height:282px;max-width:100%;-o-object-fit:cover;object-fit:cover;-o-object-position:50% 50%;object-position:50% 50%;width:282px}
-.photo-card__description{align-items:center;display:flex;justify-content:space-between;padding:25px 15px}
+.photo-card__description{align-items:center;display:flex;justify-content:space-between;padding:22px 20px 20px 15px}
 .photo-card__title{font-size:24px;font-weight:900;line-height:29px;margin:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.photo-card__button{background:transparent url(87ed371465c7a6a1cd01.svg) no-repeat;border:none;cursor:pointer;height:19px;max-width:22px;padding:0;width:100%}.photo-card__button:hover{opacity:.5}
+.photo-card__button{background:transparent url(87ed371465c7a6a1cd01.svg) no-repeat;border:none;cursor:pointer;height:19px;margin:0 0 3px;padding:0;width:22px}.photo-card__button:hover{opacity:.5}
 .popup__container{background-color:#fff;border-radius:10px;box-shadow:0 0 25px rgba(0,0,0,.15);box-sizing:border-box;padding:35px;position:relative;width:430px}@media screen and (max-width:570px){.popup__container{padding:25px 22px;width:282px}}
 .popup__title{color:#000;font-size:24px;font-weight:900;line-height:29px;margin:0 0 33px}@media screen and (max-width:570px){.popup__title{font-size:18px;line-height:22px;margin:0 0 65px}}
 .popup__input{background-color:transparent;border:none;border-bottom:1px solid rgba(0,0,0,.2);display:block;font-size:14px;line-height:17px;margin:15px 0 0;padding:13px 0 10px;width:100%}.popup__input:first-of-type{margin:0}.popup__input:focus{outline:2px solid #6998eb}.popup__input::-moz-placeholder{color:#c4c4c4;font-size:14px;line-height:17px}.popup__input:-ms-input-placeholder{color:#c4c4c4;font-size:14px;line-height:17px}.popup__input::placeholder{color:#c4c4c4;font-size:14px;line-height:17px}
@@ -35,10 +35,14 @@
 .photo-card__button-trash{background:transparent url(e3c42771bff3aaa52f76.svg) no-repeat;border:none;cursor:pointer;height:20px;position:absolute;right:20px;top:20px;width:18px}.photo-card__button-trash:hover{opacity:.6}
 .image-popup__picture{max-height:75vh;max-width:75vw}
 .image-popup__description{font-size:12px;line-height:15px;margin:10px 0 0}
+.photo-card__like-counter-block{align-items:center;display:flex;flex-direction:column;width:22px}
+.photo-card__counter{font-size:13px;line-height:16px}
 .popup_opened{opacity:1;visibility:visible}
-.photo-card__button_like_black{background:transparent url(fe17a515669479b1e649.svg) no-repeat;border:none;cursor:pointer;height:19px;max-width:22px;padding:0;width:100%}.photo-card__button_like_black:hover{opacity:.5}
+.photo-card__button_like_black{background:transparent url(fe17a515669479b1e649.svg) no-repeat;border:none;cursor:pointer;height:19px;padding:0;width:22px}.photo-card__button_like_black:hover{opacity:.5}
 .popup__input_type_error{border-color:red}
 .error-message_visible{color:red;font-size:12px;line-height:15px;opacity:1}
 .popup__button-save_disabled{background-color:#fff;border:1px solid rgba(0,0,0,.2);color:rgba(0,0,0,.2);cursor:default}.popup__button-save_disabled:hover{opacity:1}
 .popup_type_image{background-color:rgba(0,0,0,.9)}
+.popup__title_type_size{margin:0}
+.popup__button-save_type_size{margin:32px 0 0}
 
